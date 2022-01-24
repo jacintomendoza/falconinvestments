@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'falconfrontend';
+  showInfo:boolean = true;
+
+  disable_info():void{
+    this.showInfo=false;
+  }
+  enable_info():void{
+    this.showInfo=true;
+  }
 }
