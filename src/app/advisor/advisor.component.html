@@ -1,0 +1,16 @@
+
+
+<body>
+    
+    <br>
+    
+    Topic
+        <a (click)="show_topics()">Get stuff</a>
+    
+        <div *ngFor="let topic of topics">
+            {{topic.id}}
+            {{topic.name}}
+            {{topic.description}}
+        </div>
+
+</body>
