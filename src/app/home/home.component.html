@@ -1,40 +1,39 @@
-<main>
-  <section class="intro" id="intro">
-    <div class="hero-container">
-      <div class="hero-image" appParallax></div>
-        <div class="hero-text">
-          <h1 class="section-titles" style="font-size: 50px">Start Preparing for Financial Freedom</h1>
-          <h2 data-aos="fade-up" style="font-size: 20px">Here at Falcon Investments, we believe it is never too early to start
+
+<section class="intro" id="intro">
+  <div class="hero-container">
+    <div class="hero-image"></div>
+      <div class="hero-text">
+        <h1 class="section-titles" data-aos="fade-up" style="font-size: 50px">Start Preparing for Financial Freedom</h1>
+        <h2 data-aos="fade-up" style="font-size: 20px">Here at Falcon Investments, we believe it is never too early to start
         investing. See our options below.</h2>
     </div>
   </div>
 </section>
-  
   <section class="accounts">
-    <div class="account-wrapper">
+    <div class="account-wrapper" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
       <div class="account-types">
         <aside class="ira">
-          <h2>Account Types:</h2>
-          <h3>Individual Retirement Accounts</h3>
+          <h2 data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">Account Types:</h2>
+          <h3 data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">Individual Retirement Accounts</h3>
           <ul>
-            <li>Traditional IRA</li>
-            <li>Roth IRA</li>
-            <li>Spousal IRA</li>
+            <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">Traditional IRA</li>
+            <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">Roth IRA</li>
+            <li data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">Spousal IRA</li>
           </ul>
-          <p>
+          <p data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">
             Investing in an IRA is a great opportunity to kickstart your early
             retirement with tax-free growth or a tax-deferred basis.
           </p>
           <a routerLink="/signup">Open Account</a>
         </aside>
         <aside>
-          <h3>Other Accounts</h3>
+          <h3 data-aos="fade-left" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">Other Accounts</h3>
           <ul>
-            <li>Brokerage</li>
-            <li>529 Savings</li>
-            <li>UGMA/UTMA</li>
+            <li data-aos="fade-left" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">Brokerage</li>
+            <li data-aos="fade-left" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">529 Savings</li>
+            <li data-aos="fade-left" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">UGMA/UTMA</li>
           </ul>
-          <p>
+          <p data-aos="fade-left" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000">
             Enjoy a variety of products to choose your style of investment that
             suits you, from stock investing to college savings.
           </p>
@@ -43,13 +42,13 @@
       </div>
     </div>
   </section>
-</main>
+
 
 <section class="investments">
-  <h2 id="inv-prod">Investment Products:</h2>
+  <h2 id="inv-prod" data-aos="fade-up">Investment Products:</h2>
   <mat-tab-group dynamicHeight animationDuration="1500ms" color="warn" [selectedIndex]="btnNextPrev.index">
     <mat-tab label="Stocks">
-      <div class="stocks">
+      <div class="stocks" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
         <div class="inv-container">
           <h3>Invest in Stocks</h3>
           <mat-icon aria-label="Example money icon">attach_money</mat-icon>
@@ -104,9 +103,9 @@
   </mat-tab-group>
 </section>
 <section class="news">
-  <div class="news-container">
+  <div class="news-container" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
     <h2 >Latest News:</h2>
-    <!-- <app-news></app-news> -->
+    <app-news></app-news>
   </div>
 </section>
 

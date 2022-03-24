@@ -44,15 +44,18 @@
 // }
 
 .accounts {
+  z-index: 1000;
   padding: 40px 120px;
-  background-color: #549369;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  background-color: var(--secondary-color);
+  // border-top: 1px solid black;
+  // border-bottom: 1px solid black;
+  color: var(--font-primary-color);
   min-height: 450px;
   .account-wrapper {
-    background-color: rgba(255, 255, 255, 0.898);
-    border: 1px solid black;
-    border-radius: 10px;
+    box-shadow: 0.5px 1px 5px black;
+    background-color: var(--primary-color);
+    // border: 1px solid black;
+    // border-radius: 10px;
     padding: 40px 20px;
     .account-types {
       display: flex;
@@ -80,6 +83,7 @@
     }
   }
 }
+
 .ira h2, .investments h2, .news h2 {
   padding: 10px 1rem 20px 0;
   font-size: 36px;
@@ -90,15 +94,17 @@
 }
 
 .investments {
+
   min-height: 400px;
   padding: 20px 40px;
-  background-color: #dcb28ba5;
+  background-color: var(--primary-color);
   h2 {
    padding-right: 200px;
     margin-left: 70px;
     margin-bottom: 30px;
   }
   mat-tab-group {
+    box-shadow: 0.5px 1px 5px black;
     margin: 10px 30px 70px 30px;
     background-color: #034f3ad5;
     ::ng-deep .mat-tab-label {
@@ -140,21 +146,27 @@
 }
 
 .news {
-  min-height: 500px;
-  border-top: 1px solid black;
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  // border-top: 1px solid black;
+  background-color: var(--secondary-color);
   .news-container {
-    background-color: #549369;
+    box-shadow: 0.5px 1px 5px black;
+    background-color: var(--primary-color);
     width: 85vw;
-    margin: 60px auto;
-    border: 1px solid black;
+    // margin: 60px auto;
+    // border: 1px solid black;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 650px;
+    height: 95vh;
     h2 {
-      margin-top: 50px;
-      padding: 10px 100px;
+      // margin-top: 50px;
+      // padding: 10px 100px;
       text-align: center;
     }
   }

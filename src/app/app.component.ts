@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { UserStoreService } from './user-store.service';
 import { UserService } from './user.service';
+import * as AOS from 'aos';
+
 
 @Component({
   selector: 'app-root',
@@ -26,5 +28,7 @@ export class AppComponent implements OnInit {
         }
       }
     });
+    AOS.init();
   }
+  
 }

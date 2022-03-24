@@ -1,8 +1,13 @@
 mat-toolbar {
-  display: flex;
-  // justify-content: center;
   background-color: var(--primary-color);
-  color: white;
+  position: fixed;
+  top: 0;
+  display: flex;
+  z-index: 2;
+  color: var(--font-primary-color);
+  box-shadow: 0.5px 1px 5px black;
+  transition: background-color 0.5s ease-in, opacity 0.5s ease-in;
+  // overflow: hidden;
   mat-toolbar-row {
     display: flex;
     justify-content: space-between;
@@ -34,7 +39,7 @@ mat-toolbar {
 
 mat-sidenav-content {
   background-color: var(--background-color);
-  height: 100vh;
+  // height: 100vh; //breaks AOS
 }
 .mobile-link {
   display: none;
