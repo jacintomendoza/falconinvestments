@@ -1,0 +1,134 @@
+<div class="etf-table">
+  <h2>Exchange-Traded Funds (ETFs)</h2>
+
+  <mat-spinner *ngIf="isLoadingETFs"></mat-spinner>
+
+  <mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8"
+    matSort
+    (matSortChange)="announceSortChange($event)"
+  >
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fund Name</th>
+      <td mat-cell *matCellDef="let filteredFund">{{ filteredFund.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ticker">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Symbol</th>
+      <td mat-cell *matCellDef="let filteredFund">{{ filteredFund.ticker }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="inceptionDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Inception Date</th>
+      <td mat-cell *matCellDef="let filteredFund">
+        {{ filteredFund.inceptionDate }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expenseRatio">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Expense Ratio</th>
+      <td mat-cell *matCellDef="let filteredFund">
+        {{ filteredFund.expenseRatio }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+      <td mat-cell *matCellDef="let filteredFund">${{ filteredFund.price }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="isUsed">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+      <td mat-cell *matCellDef="let filteredFund">
+        <div *ngIf="userToGreet">
+          <div *ngIf="filteredFund.isUsed == false">
+            <button
+              (click)="addInvestment(filteredFund.id)"
+              mat-mini-fab
+              color="primary"
+              aria-label="icon button with a plus icon"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+          <div *ngIf="filteredFund.isUsed == true">
+            <button mat-mini-fab disabled color="primary">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 15]"
+    showFirstLastButtons
+    aria-label="Select page of etfs"
+  >
+  </mat-paginator>
+</div>
+
+<div class="portfolio-display">
+  <h2>Why you should choose an ETF</h2>
+  <mat-divider></mat-divider>
+  <section class="blocked">
+    <header>
+      <div class="col">If you prefer lower investment minimums…</div>
+      <div class="col">
+        <h3>An ETF could be more suitable for you.</h3>
+      </div>
+    </header>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        You can buy an ETF for the price of 1 share—commonly referred to as the
+        ETF's market price. Depending on the ETF, that price could be as little
+        as $50 or as much as a few hundred dollars.
+      </div>
+    </div>
+  </section>
+  <mat-divider></mat-divider>
+
+  <section>
+    <header>
+      <div class="col">
+        If you want more hands-on control over the price of your trade…
+      </div>
+      <div class="col">
+        <h3>An ETF could be more suitable for you.</h3>
+      </div>
+    </header>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        Not only do ETFs provide real-time pricing, but they also let you use
+        more sophisticated order types that give you the most control over your
+        price. If you want to keep things simple, that's OK! Just stick with a
+        market order. It'll get you the best current price without the added
+        complexity.
+      </div>
+    </div>
+  </section>
+  <mat-divider></mat-divider>
+
+  <section class="blocked">
+    <header>
+      <div class="col">If you're looking for an index fund…</div>
+      <div class="col">
+        <h3>An ETF could be a suitable investment.</h3>
+      </div>
+    </header>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        Most ETFs are index funds (sometimes referred to as "passive"
+        investments), including our lineup of nearly 70 Falcon index ETFs.
+      </div>
+    </div>
+  </section>
+</div>

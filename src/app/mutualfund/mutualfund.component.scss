@@ -1,0 +1,91 @@
+.detailedMutualFund {
+    border: 2px solid black;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 350px;
+    width: 550px;
+    margin: 40px auto;
+}
+
+.title {
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.block1 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    .row1, .risk {
+        display: inline;
+    }
+}
+
+.row1 {
+    display: flex;
+}
+
+.riskNum {
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 100%;
+    text-align: center;
+    display: flex;
+    width : 64px;
+	height : 64px;
+	margin : 0;
+	padding : 0;
+    color: black;
+}
+
+.row2 {
+    border: 1px solid black;
+    margin: 0px 20px 0px 20px;
+}
+
+.r2-1 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.r2-2 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.block2 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    .row3, .add, .back{
+        display: inline;
+    }
+}
+
+.row3 {
+    display: flex;
+}
+
+.add {
+    padding: 20px 4px 20px 4px;
+}
+
+.back {
+    align-self: flex-end;
+}
+a {
+    text-decoration: none;
+    color: white;
+    background-color: #1d3557;
+    padding: 7px;
+    border-radius: 5px;
+    width: 130px;
+    text-align: center;
+  }
+  a:hover {
+    background-color: #3336908e;
+  }

@@ -1,0 +1,76 @@
+<div class="stocks">
+  <h2>Stocks</h2>
+  <mat-spinner *ngIf="isLoadingStocks"></mat-spinner>
+  <mat-table [dataSource]="dataSource">
+    <!-- User name Definition -->
+    <ng-container matColumnDef="stockname" class="columns">
+      <mat-header-cell *matHeaderCellDef> Stock name</mat-header-cell>
+      <mat-cell *matCellDef="let filteredStock"> {{filteredStock.name}} </mat-cell>
+    </ng-container>
+    
+    <!-- Age Definition -->
+    <ng-container matColumnDef="symbol" class="columns">
+      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-cell *matCellDef="let filteredStock"> {{filteredStock.symbol}} </mat-cell>
+    </ng-container>
+    
+    <!-- Title Definition -->
+    <ng-container matColumnDef="price" class="columns">
+      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+      <mat-cell *matCellDef="let filteredStock"> {{filteredStock.price | currency}} </mat-cell>
+      
+      
+    </ng-container>
+    
+ 
+    <ng-container matColumnDef="isUsed" class="columns">
+      <mat-header-cell mat-header-cell *matHeaderCellDef >Add</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let filteredStock">
+          <div *ngIf="filteredStock.isUsed==false">
+              <button (click)="addToCart(filteredStock.id)" mat-mini-fab color="primary" aria-label="icon button with a plus icon">
+                  <mat-icon>add</mat-icon>
+              </button>
+              </div>
+              <div *ngIf="filteredStock.isUsed==true">
+                <button mat-mini-fab disabled color="primary">
+                  <mat-icon>add</mat-icon>
+              </button>
+              </div>
+      </mat-cell>
+  </ng-container> 
+  
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="['stockname', 'symbol', 'price', 'isUsed' ]"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  
+  
+  <mat-paginator [pageSizeOptions]="[5, 10, 25]" 
+  showFirstLastButtons
+  aria-label="Select page of stocks">
+</mat-paginator>
+</div>
+
+<a class="btn" routerLink="/cart" id="cart-button">
+  Preview Order
+</a>
+<div class="disclaimer">
+  <h5>
+    <h5>
+      Intraday prices are generally provided for stocks, ETFs, and options on a delayed basis during market hours. Prices are delayed at least 20 minutes. If an intraday price is not available, the price displayed will reflect the previous business day's close. For mutual funds and fixed income holdings, the prices displayed are generally the previous business day's closing price.
+  Market information is provided by Thomson Reuters. 
+  </h5>
+  <h5>
+    Additional information about prices for other products and outside investments
+    These funds do not actually exist at this price point. This is not a real brokerage.
+    Disclaimer
+  </h5>
+  <h5>
+    *Note on account protection: Securities in your brokerage account are held in custody nothing - there is no real accounts or offerings from this website, a division of Falcon Investment Kappa
+    
+    Your "cost basis" related to any security you hold refers to the price you paid for that security and can be adjusted by items such as return of capital, commission or transaction fees. Please see https://investor.vanguard.com/taxes/cost-basis/ for more detailed information on cost basis. When "covered" securities are sold, Vanguard reports the cost basis to you and the IRS; however, when "noncovered" securities are sold, Vanguard does not report the cost basis to the IRS. You are responsible for tracking and reporting the cost basis of your securities. In cases where the cost basis of a security is unknown, Vanguard will assume a cost basis of zero, therefore, the lot’s gain will be equal to the proceeds. Please see https://investor.vanguard.com/taxes/cost-basis/covered-noncovered for more detailed information on "covered" and "noncovered" securities. Vanguard does not provide tax advice please contact your tax advisor with questions related to cost basis or other tax matters.
+    Please do not contact us as we are only web developers
+  </h5>
+  </h5>
+  
+  </div>

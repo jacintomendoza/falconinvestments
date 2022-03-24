@@ -1,0 +1,81 @@
+.etf-table {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  // min-height: 80vh;
+  h2 {
+    padding: 40px;
+    margin: 0 100px;
+    font-size: 40px;
+    border-bottom: 1px solid black;
+    display: block;
+    text-align: center;
+    line-height: 34px;
+  }
+}
+
+mat-table {
+  width: 60%;
+  margin-top: 70px;
+}
+
+th,
+td {
+  font-size: 16px;
+}
+
+.mat-column-name {
+  flex: 0 0 30%;
+}
+
+.mat-column-ticker {
+  flex: 0 0 9%;
+}
+
+.mat-column-price,
+.mat-column-expenseRatio,
+.mat-column-inceptionDate {
+  flex: 0 0 15%;
+}
+
+mat-cell,
+td.mat-cell,
+th.mat-header-cell {
+  border-bottom-style: none;
+}
+
+mat-paginator {
+  width: 60%;
+  text-align: center;
+}
+
+.portfolio-display {
+  margin-top: 80px;
+  border: 1px solid black;
+  max-width: 50rem;
+  margin: 3rem auto;
+  background-color: #e9e5d6;
+}
+
+header,
+.row {
+  display: flex; /* aligns all child elements (flex items) in a row */
+}
+
+.col {
+  flex: 1; /* distributes space on the line equally among items */
+  margin: 1rem;
+}
+
+h3 {
+  margin: 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+.blocked {
+  background-color: #acb992;
+}

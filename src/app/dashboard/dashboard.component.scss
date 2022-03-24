@@ -1,0 +1,117 @@
+.wrapper {
+    h1 {
+        padding: 20px;
+        font-size: 36px;
+        text-align: center;
+        font-family: 'Playfair Display', 'serif';
+    }
+}
+.container {
+    padding: 20px;
+    min-height: 80vh;
+    max-height: 120vh;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    mat-card {
+        margin: auto;
+        display: inline-block;
+        padding: 20px;
+        text-align: center;
+    }
+    .user-info {
+        width: 30vw;
+        margin-left: 50px;
+        th {
+            padding: 10px 15px;
+        }
+    }
+    .investment-card {
+        width: 50vw;
+        margin: 0 90px 0 40px;
+    }
+    .cd-card {
+        width: 50vw;
+        margin: 40px 90px 0 40px;
+    }
+    .spacer {
+        width: 25vw;
+        min-height: 70vh;
+        text-align: left;
+        margin: 50px 0 0 50px;
+        mat-card {
+            padding: 30px;
+        }
+        li {
+            text-align: left;
+            padding: 10px 30px 5px 0;
+        }
+    }
+    .investments, .certificates {
+        margin: auto;
+        font-size: 16px;
+        text-align: left;
+        margin-top: 15px;
+        button {
+            text-align: center;
+        }
+        td {
+            padding: 5px 15px;
+        }
+        th {
+            padding: 10px 15px;
+            border-bottom: 1px solid black;
+        }
+    }
+}
+.btn {
+    width: 150px;
+    margin: 20px;
+}
+
+
+@media only screen and (max-width: 1450px) {
+    .user-info {
+        width: 20vw;
+        margin-left: 30px;
+        font-size: 14px;
+    }
+    .investment-card, .cd-card {
+        max-width: 40vw;
+        margin: 0 40px;
+        th, td {
+            font-size: 12px;
+        }
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .container {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    .user-info {
+        width: 30vw;
+        margin-left: 0px;
+        font-size: 14px;
+    }
+
+    .investment, .cd {
+        margin: auto;
+        padding: 20px;
+        
+    }
+    .investment-card, .cd-card {
+        min-width: 60vw;
+        margin: 20px auto;
+        th, td {
+            font-size: 12px;
+        }
+    }
+    .spacer {
+        width: 0;
+    }
+}

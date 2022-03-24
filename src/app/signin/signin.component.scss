@@ -1,0 +1,70 @@
+.wrapper {
+  min-height: 70vh;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  mat-card {
+    max-width: 40vw;
+    border-radius: 15px;
+    background-color: #549369;
+    padding: 40px;
+    p {
+      text-align: center;
+      padding-top: 10px;
+      font-size: 16px;
+    }
+    a {
+      text-align: center;
+    }
+  }
+  h2 {
+    padding: 10px 1rem 20px 0;
+    font-size: 36px;
+    font-family: "Playfair Display", serif;
+    border-bottom: 1px solid black;
+    text-align: center;
+    margin: auto;
+  }
+  .loginform {
+    background-color: rgba(255, 255, 255, 0.932);
+    padding: 30px;
+    width: 500px;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 200px;
+      mat-form-field {
+        width: 400px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.login-error {
+  color: red;
+}
+
+#grayedOut {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.4);
+}
+ 
+mat-spinner {
+  position: absolute;
+  justify-self: center;
+  align-self: center;
+}
+

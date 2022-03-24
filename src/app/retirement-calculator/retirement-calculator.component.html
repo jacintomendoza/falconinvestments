@@ -1,0 +1,79 @@
+<div class="container">
+  <h2>Retirement Calculator</h2>
+  <p>Enter your IRA information below to see how much money you can make!</p>
+
+  <div class="retirement">
+    <aside>
+      <mat-card>
+        <h3>Account Details:</h3><hr>
+        <form [formGroup]="calcForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="outline">
+            <mat-label>Principal Balance:</mat-label>
+            <input
+              matInput
+              type="number"
+              formControlName="balance"
+              placeholder="Current Balance"
+              [value]="accounts && accounts.balance ? accounts.balance : 0"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Annual Contribution:</mat-label>
+            <input
+              matInput
+              type="number"
+              formControlName="annualContribution"
+              placeholder="6,000"
+              [value]="
+                accounts && accounts.annualContribution
+                  ? accounts.annualContribution
+                  : 0
+              "
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Current Age:</mat-label>
+            <input
+              matInput
+              type="number"
+              formControlName="age"
+              placeholder="25"
+              value="25"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Expected Return Rate:</mat-label>
+            <input
+              matInput
+              type="number"
+              formControlName="returnRate"
+              placeholder="0.07"
+              value="0.07"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Estimated Tax Bracket:</mat-label>
+            <mat-select formControlName="taxRate">
+              <mat-option value="0.15">Low: 15%</mat-option>
+              <mat-option value="0.20">Low-Mid: 20%</mat-option>
+              <mat-option value="0.25">Mid: 25%</mat-option>
+              <mat-option value="0.30">Mid-High: 30%</mat-option>
+              <mat-option value="0.35">High: 35%</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button type="submit" mat-raised-button color="primary">Check</button>
+        </form>
+      </mat-card>
+    </aside>
+    <aside>
+      <mat-card>
+        <h3>Results:</h3><hr>
+        <div class="results">
+          <p>Results are based on retirement at age 65.</p>
+          <p>In {{ years }} years you will make:</p>
+          <h1>{{ total | currency }}</h1>
+        </div>
+      </mat-card>
+    </aside>
+  </div>
+</div>

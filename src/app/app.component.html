@@ -1,76 +1,60 @@
-<header>
-  <div class="container">
-      <h1 class="title">Falcon Investments</h1>
-      <div class="navigation-display">
-          <div class="navigation">
-              <ul>
-                  <li><a routerLink="/" (click)="enable_info()">Home</a></li>
-                  <li><a routerLink="/login" (click)="disable_info()">Login</a></li>
-                  <li><a routerLink="/signup" (click)="disable_info()">Sign Up</a></li>
-                  <li><a routerLink="/advisor" (click)="disable_info()">Advisor</a></li>
-              </ul>
+<!-- Navbar -->
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div class="left-bar">
+      <img src="../assets/images/falcon-i-green-v2.png" alt="Falcon Logo" routerLink="/home">
+      <h1 class="logo" routerLink="home">Falcon Investments</h1>
+    </div> 
+
+    <div class="nav">
+      <div class="mobile-nav">
+        <a mat-button routerLink="/home">Home </a>
+        <a mat-button routerLink="/signin">Login </a>
+        <a mat-button routerLink="/signup">Create Account </a>
+        <a mat-button routerLink="/dashboard">Dashboard </a>
+      </div>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- SideNav -->
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav position="end">
+    <mat-nav-list>
+      <div class="mobile-link">
+        <a mat-list-item routerLink="/signin" class="mobile-link">Login </a>
+        <a mat-list-item routerLink="/dashboard" class="mobile-link">Dashboard </a>
+        <a mat-list-item routerLink="/signup" class="mobile-link">Create Account </a>
+      </div>
+      <a mat-list-item routerLink="/stocks"> Stocks </a>
+      <a mat-list-item routerLink="/mutualfunds"> Mutual Funds </a>
+      <a mat-list-item routerLink="/certificates"> Certificates of Deposit </a>
+      <a mat-list-item routerLink="/etfs"> ETFs </a>
+      <a mat-list-item> Feedback </a>
+      <a mat-list-item routerLink="/retirement"> Retirement Calculator </a>
+      <a mat-list-item routerLink="/advisor"> Advisor </a>
+      <app-signout-button></app-signout-button>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh">
+      <router-outlet></router-outlet>
+      <!-- footer -->
+      <footer>
+        <div class="container">
+          <p>Copyright &copy; 2022 All Rights Reserved by Falcon Investments</p>
+          <div>
+            <a routerLink="/home">Home</a>
+            <a routerLink="/dashboard">Dashboard</a>
+            <a routerLink="/signin">Login</a>
+            <a routerLink="/signup">Create Account</a>
           </div>
-      </div>
-  </div>
-</header>
-
-<body>
-  <div *ngIf="showInfo">
-    <div class="hero">
-        <div class="info">
-            <div class="info row1">
-                <H1 class="welcome">Welcome Falcon Investments!</H1>
-                <p class="description">The key to your financial success</p>
-                <br>
-                <a routerLink="/signup" (click)="disable_info()">Get Started Today</a>
-            </div>
-            <div class="info row2">
-            </div>
         </div>
+      </footer>
     </div>
-  
-    <hr>
-  
-    <div class="row-style">
-      <h1>Choose your style of investment</h1>
-    </div>
-    <div class="row-style">
-      <div class="col-style">
-        <i class="fa fa-certificate"></i>
-        <h2>CDs</h2>
-      </div>
-      <div class="col-style">
-        <i class="fa fa-book"></i>
-        <h2>ETFs</h2>
-      </div>
-      <div class="col-style">
-        <i class="fa fa-money"></i>
-        <h2>Public Stocks</h2>
-      </div>
-      <div class="col-style">
-        <i class="fa fa-dollar"></i>
-        <h2>Mutual Funds</h2>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="row-secure">
-      <div class="col-secure">
-        <i class="fa fa-lock"></i>
-      </div>
-      <div class="col-secure2">
-        <h1>Secure transactions</h1>
-        <p>Invest knowing that our backend is protected through passwords and encryption. </p>
-      </div>
-    </div>
-
-    <hr>
-  
-    
-    
-  </div>
-  
-</body>
-
-<router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,121 @@
+<div id="grayedOut" *ngIf="isLoadingCertificates"></div>
+<section class="content">
+  <h1>Certificates of deposit</h1>
+
+  <mat-tab-group>
+    <mat-tab label="My CDs">
+      <div class="container">
+        <mat-spinner *ngIf="isLoadingCertificates"></mat-spinner>
+      </div>
+      <div class="tab-container">
+        <span *ngIf="!isSignedIn">Sign in to purchase a brokered CD.</span>
+        <span *ngIf="isSignedIn && userCertificates.length === 0"
+          >There are no CDs to display yet.</span
+        >
+        <mat-card *ngFor="let certificate of userCertificates">
+          <mat-card-title
+            ><h4>
+              {{
+                certificate.name ? '"' + certificate.name + '"' : "(Unnamed CD)"
+              }}
+            </h4></mat-card-title
+          >
+          <strong>
+            Opened with
+            {{ certificate.initialAmount | currency: "USD" }}, on
+            {{ certificate.startDate | date: "mediumDate" }}
+          </strong>
+          <br />
+          Maturity: {{ certificate.maturityDate | date: "mediumDate" }} ({{
+            calcTimeRemaining(certificate.maturityDate)
+          }}
+          from now)<br />
+          <em
+            >Interest to be paid upon maturity:
+            <strong>{{
+              certificate.initialAmount *
+                certificate.interestRate *
+                (numMonths(certificate.startDate, certificate.maturityDate) /
+                  12) | currency: "USD"
+            }}</strong></em
+          ><br /><br />
+          <em>Brokered CDs may be sold before maturity.</em><br />
+          <button
+            class="sell-button"
+            mat-raised-button
+            color="primary"
+            (click)="sellCD(certificate.id)"
+          >
+            Sell this CD?
+          </button>
+        </mat-card>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Purchase a CD">
+      <form>
+        <mat-form-field>
+          <mat-label>Name (optional)</mat-label>
+          <!-- Arbitrary max length -->
+          <input
+            matInput
+            name="certificateName"
+            [(ngModel)]="certificateName"
+            maxlength="50"
+          />
+        </mat-form-field>
+        $<mat-form-field>
+          <mat-label>Initial amount</mat-label>
+          <input
+            matInput
+            name="initialAmount"
+            [(ngModel)]="initialAmount"
+            type="number"
+            min="1000"
+            step="1000"
+            value="1000"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Purchase date</mat-label>
+          <input
+            disabled
+            matInput
+            [matDatepicker]="formDate"
+            [min]="today.value"
+            [value]="today.value"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="formDate"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #formDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Length of time (months)</mat-label>
+          <input
+            matInput
+            [(ngModel)]="lengthOfCd"
+            (ngModelChange)="updateInterest()"
+            name="lengthOfCd"
+            type="number"
+            min="1"
+            required
+          />
+        </mat-form-field>
+        <p>
+          {{ lengthOfCd / 12 | number: "1.1-2" }} years at
+          <input disabled [value]="rateToDisplay" /> APY:
+        </p>
+        <p>
+          Interest to be paid upon maturity:
+          {{ initialAmount * APY * (lengthOfCd / 12) | currency: "USD" }}
+        </p>
+        <button mat-raised-button color="primary" (click)="buyCD()">
+          Purchase
+        </button>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</section>

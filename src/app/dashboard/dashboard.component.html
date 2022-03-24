@@ -1,0 +1,174 @@
+<div class="wrapper">
+  <div *ngIf="userToGreet">
+    <h1>Welcome, {{ userToGreet.firstName }}!</h1>
+  </div>
+  <div class="container">
+    <div class="user-info">
+      <mat-card>
+        <mat-spinner *ngIf="isLoadingUser"></mat-spinner>
+        <h2>User info</h2><hr>
+        <div class="info">
+          <table>
+            <tr>
+              <th>Name:</th>
+              <td>
+                {{ userToGreet ? userToGreet.firstName : "User" }}
+                {{ userToGreet ? userToGreet.lastName : "User" }}
+              </td>
+            </tr>
+            <tr>
+              <th>Email:</th>
+              <td>{{ userToGreet ? userToGreet.email : "Email" }}</td>
+            </tr>
+            <ng-container>
+              <tr>
+                <th>Account Type:</th>
+                <td>{{ accounts ? accounts.label : "type" }}</td>
+              </tr>
+              <tr>
+                <th>Balance:</th>
+                <td>
+                  {{ accounts ? (accounts.balance | currency) : "balance" }}
+                </td>
+              </tr>
+              <tr>
+                <th>Annual Contribution:</th>
+                <td>
+                  {{
+                    accounts
+                      ? (accounts.annualContribution | currency)
+                      : "annual contribution"
+                  }}
+                </td>
+              </tr>
+              <tr>
+                <th>Account Date:</th>
+                <td>
+                  {{ accounts ? (accounts.createdAt | date) : "account date" }}
+                </td>
+              </tr>
+            </ng-container>
+          </table>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="spacer">
+      <mat-card>
+        <h2>Quick Links:</h2>
+        <hr>
+        <ul>
+          <li>Need Help? - <a routerLink="/advisor">Advisor</a></li>
+          <li>See Future Savings? - <a routerLink="/retirement">Retirement Calculator</a></li>
+          <li>Leave a Review. - <a routerLink="/feedback">Feedback</a></li>
+        </ul>
+      </mat-card>
+    </div>
+
+    <div class="investment">
+      <mat-card class="investment-card">
+        <mat-spinner *ngIf="isLoadingAccounts"></mat-spinner>
+        <h2>Investment Portfolio</h2>
+        <mat-tab-group dynamicHeight animationDuration="1000ms">
+          <mat-tab label="Investments">
+            <table class="investments">
+              <th>Name</th>
+              <th>Symbol</th>
+              <th>Investment Type</th>
+              <th>Expense Ratio</th>
+              <th>NAV</th>
+              <th>Date Created</th>
+              <th>Delete</th>
+
+              <tr *ngFor="let investment of investments; let i = index">
+                <td>{{ investment.name }}</td>
+                <td>{{ investment.symbol }}</td>
+                <td>{{ investment.type }}</td>
+                <td>{{ investment.expenseRatio }}</td>
+                <td>{{ investment.nAV | currency }}</td>
+                <td>{{ investment.inceptionDate | date }}</td>
+                <td>
+                  <button
+                    (click)="deleteInvestment(investment.id, i)"
+                    mat-mini-fab
+                    color="primary"
+                    aria-label="icon button with a plus icon"
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </tr>
+            </table>
+            <a class="btn" routerLink="/mutualfunds">Add Mutual Funds</a>
+            <a class="btn" routerLink="/etfs">Add ETFs</a>
+          </mat-tab>
+          <mat-tab label="Stocks">
+            <table class="investments">
+              <th>Stock Name</th>
+              <th>Symbol</th>
+              <th>Price</th>
+              <th>Amount </th>
+              <th>Sell</th>
+
+              <tr *ngFor="let stock of stocks; let i = index">
+                <td>{{ stock.name }}</td>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.price }}</td> 
+                <td>{{ stock.quantity }}</td>
+                <td>
+                  <button
+                  (click)="deleteStock(stock.id, i)"
+                    mat-mini-fab
+                    color="primary"
+                    aria-label="icon button with a trash icon"
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </tr>
+            </table>
+            <a class="btn" routerLink="/stocks">Add Stocks</a>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card>
+    </div>
+
+    <div class="cd">
+      <mat-card class="cd-card">
+        <mat-spinner *ngIf="isLoadingCertificates"></mat-spinner>
+        <h2>CD Holdings</h2>
+        <table class="certificates">
+          <th>Certificate</th>
+          <th>Beginning Date</th>
+          <th>Time Until Maturity</th>
+          <th>Amount</th>
+          <th>APY</th>
+          <th>Yield at Maturity</th>
+          <tr *ngFor="let certificate of certificates">
+            <td>{{ certificate.name ? certificate.name : "(Unnamed CD)" }}</td>
+            <td>{{ certificate.startDate | date }}</td>
+            <td>
+              {{ calcTimeRemaining(certificate.maturityDate) }}
+            </td>
+            <td>{{ certificate.initialAmount | currency }}</td>
+            <td>{{ certificate.interestRate | percent: "1.2-4" }}</td>
+            <td>
+              {{
+                certificate.initialAmount *
+                  certificate.interestRate *
+                  (convertDatesToMonths(
+                    certificate.startDate,
+                    certificate.maturityDate
+                  ) /
+                    12) | currency
+              }}
+            </td>
+          </tr>
+        </table>
+        <a class="btn" routerLink="/certificates">Add Brokered CD</a>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<!-- <app-news></app-news> -->

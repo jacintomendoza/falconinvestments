@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Oswald&family=Playfair+Display&display=swap");
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Merriweather", serif;
+  background-color: #ede7d0;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+}
+
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+}
+
+p {
+  font-family: "Merriweather", serif;
+}
+
+.snackbar {
+  button {
+    color: #1d3557;
+    background-color: rgba(255, 255, 255, 0.638);
+  }
+}
+
+.btn {
+  text-decoration: none;
+  color: white;
+  background-color: #1d3557;
+  padding: 7px;
+  border-radius: 5px;
+  width: 130px;
+  text-align: center;
+  font-family: "Merriweather", serif;
+  font-size: 16px;
+  display: inline-block;
+  margin: auto;
+  &:hover {
+    background-color: #3336908e;
+  }
+}

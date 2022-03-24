@@ -1,0 +1,95 @@
+<section>
+  <div class="mfIntro">
+    
+      <h2>Mutual Funds</h2><br>
+      <div>
+        <p>
+        Falcon Investments has financial professionals that have over 23 years’ 
+        worth of investment experience on average. These money managers or advisors 
+        invest in several securities like stocks, mutual funds, ETFs, bonds, and other assets. 
+        With a pool of money collected from the vast member base, we can offer several options         with varying risk levels to meet your needs. Start investing with mutual funds today 
+        with a diversified, professionally managed portfolio at the lowest prices available.
+        </p>
+        <img src="../assets/images/growth.jpg" alt="Man looking at a chart of investments showing growth.">
+      </div>
+    
+  </div>
+</section>
+
+<div class="mutual-funds">  
+  <mat-spinner *ngIf="isLoadingFunds"></mat-spinner>
+
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8"
+    matSort
+    (matSortChange)="announceSortChange($event)"
+  >
+    <ng-container matColumnDef="fundName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fund Name</th>
+      <td mat-cell *matCellDef="let filteredFund">
+        <a routerLink="/mutualfunds/{{ filteredFund.mf_id }}">{{
+          filteredFund.fundName
+        }}</a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Symbol</th>
+      <td mat-cell *matCellDef="let filteredFund">{{ filteredFund.symbol }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="inceptionDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Inception Date</th>
+      <td mat-cell *matCellDef="let filteredFund">
+        {{ filteredFund.inceptionDate }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expenseRatio">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Expense Ratio</th>
+      <td mat-cell *matCellDef="let filteredFund">
+        {{ filteredFund.expenseRatio }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nAV">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>NAV</th>
+      <td mat-cell *matCellDef="let filteredFund">{{ filteredFund.nAV }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="isUsed">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+      <td mat-cell *matCellDef="let filteredFund">
+        <div *ngIf="userToGreet">
+          <div *ngIf="filteredFund.isUsed == false">
+            <button
+              (click)="addInvestment(filteredFund.mf_id)"
+              mat-mini-fab
+              color="primary"
+              aria-label="icon button with a plus icon"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+          <div *ngIf="filteredFund.isUsed == true">
+            <button mat-mini-fab disabled color="primary">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25]"
+    showFirstLastButtons
+    aria-label="Select page of mutual funds"
+  >
+  </mat-paginator>
+</div>

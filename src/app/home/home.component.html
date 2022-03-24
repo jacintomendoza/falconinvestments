@@ -1,0 +1,111 @@
+<main>
+  <section class="welcome">
+    <div>
+      <h2>Start Preparing for Financial Freedom</h2>
+      <p>
+        Here at Falcon Investments, we believe it is never too early to start
+        investing. See our options below.
+      </p>
+    </div>
+    <img src="../assets/images/family.jpg" alt="Family of five laying in the grass posing and smiling." />
+  </section>
+  <section class="accounts">
+    <div class="account-wrapper">
+      <div class="account-types">
+        <aside class="ira">
+          <h2>Account Types:</h2>
+          <h3>Individual Retirement Accounts</h3>
+          <ul>
+            <li>Traditional IRA</li>
+            <li>Roth IRA</li>
+            <li>Spousal IRA</li>
+          </ul>
+          <p>
+            Investing in an IRA is a great opportunity to kickstart your early
+            retirement with tax-free growth or a tax-deferred basis.
+          </p>
+          <a routerLink="/signup">Open Account</a>
+        </aside>
+        <aside>
+          <h3>Other Accounts</h3>
+          <ul>
+            <li>Brokerage</li>
+            <li>529 Savings</li>
+            <li>UGMA/UTMA</li>
+          </ul>
+          <p>
+            Enjoy a variety of products to choose your style of investment that
+            suits you, from stock investing to college savings.
+          </p>
+          <a routerLink="/signup">Open Account</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="investments">
+  <h2 id="inv-prod">Investment Products:</h2>
+  <mat-tab-group dynamicHeight animationDuration="1500ms" color="warn" [selectedIndex]="btnNextPrev.index">
+    <mat-tab label="Stocks">
+      <div class="stocks">
+        <div class="inv-container">
+          <h3>Invest in Stocks</h3>
+          <mat-icon aria-label="Example money icon">attach_money</mat-icon>
+          <p>
+            We're constantly working to give you the best price on trades, and
+            those efforts are reflected in our effective over quoted spread (E/Q)
+            of 11.64%.* E/Q is the industry measurement for trade quality: the
+            lower the percentage, the better.
+          </p>
+          <a routerLink="/stocks">See Stocks</a>
+        </div>
+        <img src="../../assets/images/stocks.jpg" alt="calculator">
+        <button mat-icon-button [disabled]="btnNextPrev.next" (click)="navig('next')"><mat-icon>navigate_next</mat-icon></button>
+      </div>
+    </mat-tab>
+  
+    <mat-tab label="Mutual Funds">
+      <div class="stocks">
+        <button mat-icon-button [disabled]="btnNextPrev.prev" (click)="navig('prev')"><mat-icon>navigate_before</mat-icon></button>
+        <img src="../../assets/images/growth.jpg" alt="Growth picture">
+        <div class="inv-container">
+          <h3>Mutual Funds</h3>
+          <mat-icon>account_balance</mat-icon>
+          <p>
+            A mutual fund is a pooled collection of assets that invests in
+            stocks, bonds, and other securities.
+            You can enjoy the benefits of diversification, tax efficiency, and low costs
+            with index mutual funds.
+          </p>
+          <a routerLink="/mutualfunds">See Funds</a>
+        </div>
+        <button mat-icon-button [disabled]="btnNextPrev.next" (click)="navig('next')"><mat-icon>navigate_next</mat-icon></button>
+      </div>
+    </mat-tab>
+  
+    <mat-tab label="ETFs">
+      <div class="stocks">
+        <button mat-icon-button [disabled]="btnNextPrev.prev" (click)="navig('prev')"><mat-icon>navigate_before</mat-icon></button>
+        <div class="inv-container">
+          <h3>ETFs</h3>
+          <mat-icon>payments</mat-icon>
+          <p>
+            ETFs (exchange-traded funds) combine the diversification of mutual
+            funds with lower investment minimum and real-time pricing. An ETF is a
+            collection of stocks in a single fund that trades on major stock exchanges.
+          </p>
+          <a routerLink="/etfs">See ETFs</a>
+        </div>
+        <img src="../../assets/images/saving.jpg" alt="">
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</section>
+<section class="news">
+  <div class="news-container">
+    <h2 >Latest News:</h2>
+    <app-news></app-news>
+  </div>
+</section>
+

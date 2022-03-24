@@ -1,0 +1,67 @@
+.mfIntro {
+    display: flex;
+    min-height: 400px;
+    background-color: #ede7d0;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 60vw;
+        line-height: 28px;
+        padding-bottom: 50px;
+    }
+    h2 {
+        padding: 10px;
+        margin: 0 100px;
+        font-size: 40px;
+        font-family: "Playfair Display", serif;
+        border-bottom: 1px solid black;
+        display: block;
+        text-align: center;
+        line-height: 34px;
+    }
+    p {
+        padding: 20px;
+        font-size: 18px;
+    }
+    img {
+      max-height: 250px;
+      border: 1px solid black;
+      border-radius: 15px;
+      margin-left: 60px;
+    }
+}
+.mutual-funds  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+}
+table {
+    width: 60%;
+}
+
+mat-paginator {
+    width: 60%;
+}
+
+.mat-column-fundName {
+    flex: 0 0 16%;
+}
+
+.mat-column-inceptionDate, .mat-column-inceptionRate, .mat-column-expenseRatio {
+    flex: 0 0 9%;
+}
+
+.mat-column-symbol, .mat-column-yTD, .mat-column-yearOne, .mat-column-yearThree, .mat-column-yearFive, .mat-column-yearTen, .mat-column-nAV, .mat-column-risk, .mat-column-minimum{
+    flex: 0 0 6%;
+}
+
+a {
+    text-decoration: none;
+}
+

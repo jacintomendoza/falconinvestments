@@ -1,0 +1,45 @@
+<div id="grayedOut" *ngIf="isLoadingAuth"></div>
+<div class="wrapper">
+  <div class="container">
+    <mat-card>
+      <div class="loginform">
+      <h2>Login</h2>
+      <p>Welcome Back! Please login to your account.</p>
+      <div *ngIf="credentialsAreValid === false" class="login-error">
+        The provided user credentials are not valid.
+      </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label><h3>Username:</h3></label>
+            <mat-form-field appearance="outline">
+              <mat-label>Email:</mat-label>
+              <input
+                matInput
+                type="email"
+                formControlName="email"
+                placeholder="Email address"
+              />
+            </mat-form-field>
+          </div>
+          <div>
+            <label><h3>Password:</h3></label>
+            <mat-form-field appearance="outline">
+              <mat-label>Password:</mat-label>
+              <input
+                matInput
+                type="password"
+                formControlName="password"
+                placeholder="Password"
+              />
+            </mat-form-field>
+          </div>
+          <button type="submit" class="btn">
+            Sign in
+          </button>
+          <p>Don't have an account? </p><a routerLink="/signup">Sign Up!</a>
+        </form>
+      </div>
+    </mat-card>
+    <mat-spinner *ngIf="isLoadingAuth"></mat-spinner>
+  </div>
+</div>

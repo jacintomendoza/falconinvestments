@@ -1,0 +1,72 @@
+<div class="detailedMutualFund">
+    <div class="title">
+        <mat-title>{{mutualfund.fundName}} - {{mutualfund.symbol}}</mat-title>
+    </div>
+    <div class="block1">
+        <div class="row1">
+            <div>
+                <mat-body-1>Inception Date:&nbsp;</mat-body-1>
+                <mat-body-1>{{mutualfund.inceptionDate}}</mat-body-1>
+            </div><br>
+                
+            <div>
+                <mat-body-1>Inception Rate:&nbsp;</mat-body-1>
+                <mat-body-1>{{mutualfund.inceptionRate}}</mat-body-1>
+            </div>
+        </div>
+
+        <div class="risk">
+            <mat-body-1>Risk Level</mat-body-1>
+            <div class="riskNum" [style.backgroundColor]="custom">{{mutualfund.risk}}</div>
+        </div>
+    </div>
+    <div class="row2">
+        <div class="r2-1">
+            <mat-body-1>YTD</mat-body-1>
+            <mat-body-1>Year 1</mat-body-1>
+            <mat-body-1>Year 3</mat-body-1>
+            <mat-body-1>Year 5</mat-body-1>
+            <mat-body-1>Year 10</mat-body-1>
+        </div>
+        <div class="r2-2">
+            <mat-body-1>{{mutualfund.yTD}}</mat-body-1>
+            <mat-body-1>{{mutualfund.yearOne}}</mat-body-1>
+            <mat-body-1>{{mutualfund.yearThree}}</mat-body-1>
+            <mat-body-1>{{mutualfund.yearFive}}</mat-body-1>
+            <mat-body-1>{{mutualfund.yearTen}}</mat-body-1>
+        </div>
+    </div>
+    <div class="block2">
+        <div class="row3">
+            <div>
+                <mat-body-1>Expense Ratio:&nbsp;</mat-body-1>
+                <mat-body-1>{{mutualfund.expenseRatio}}</mat-body-1>
+            </div><br>
+            <div>
+                <mat-body-1>NAV:&nbsp;</mat-body-1>
+                <mat-body-1>{{mutualfund.nAV}}</mat-body-1>
+            </div><br>
+            <div>
+                <mat-body-1>Minimum to purchase: $</mat-body-1>
+                <mat-body-1>{{mutualfund.minimum}}</mat-body-1>
+            </div>
+        </div>
+
+        <div *ngIf="isUsed==true||isUsed==null" class="add">
+            <mat-body-2>Add Fund </mat-body-2>
+            <button mat-mini-fab disabled color="primary">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+       
+        <div *ngIf="isUsed==false" class="add">
+            <mat-body-2>Add Fund </mat-body-2>
+            <button (click)="addFund()" mat-mini-fab color="primary">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+        <div class="back">
+            <a routerLink="/mutualfunds">Back</a>
+        </div>
+    </div>
+</div>

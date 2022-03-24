@@ -1,28 +1,140 @@
-<head>
+<div id="grayedOut" *ngIf="isLoadingAuth"></div>
+<div class="container">
+  <mat-card>
+    <div class="loginform">
 
-</head>
-<body>
-
-    <div id="login-box">
-        <div class="left">
-          <h1>Sign Up</h1>
-          
-          <input type="text" name="firstname" placeholder="First Name" />
-          <input type="text" name="lastname" placeholder="Last Name" />
-          <input type="text" name="email" placeholder="E-mail" />
-          <input type="password" name="password" placeholder="Password" />
-          <input type="password" name="password2" placeholder="Retype password" />
-          
-          <input type="submit" name="signup_submit" value="Sign me up" />
-        </div>
-        
-        <div class="right">
-          <span class="loginwith">Sign in with<br />social network</span>
-          
-          <button class="social-signin facebook">Log in</button>
-          <!-- <button class="social-signin twitter">Log in with Twitter</button>
-          <button class="social-signin google">Log in with Google+</button> -->
-        </div>
-        <div class="or">OR</div>
-      </div>
-</body>
+      <h2>Create an Account</h2>
+    
+      <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>User Info</ng-template>
+            <mat-form-field>
+              <mat-label>First name:</mat-label>
+              <input
+                matInput
+                formControlName="firstName"
+                placeholder="First name"
+                required
+              />
+            </mat-form-field>
+    
+            <mat-form-field>
+              <mat-label>Last name:</mat-label>
+              <input
+                matInput
+                formControlName="lastName"
+                placeholder="Last name"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email address:</mat-label>
+              <input
+                matInput
+                formControlName="email"
+                placeholder="Email address"
+                required
+              />
+              <mat-error
+                *ngIf="firstFormGroup.controls['email'].hasError('pattern')"
+                >Please enter a valid email address.</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password:</mat-label>
+              <input
+                matInput
+                type="password"
+                formControlName="password"
+                placeholder="Password"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Confirm password:</mat-label>
+              <input
+                matInput
+                type="password"
+                formControlName="confirmPassword"
+                placeholder="Confirm password"
+                required
+              />
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Account Details</ng-template>
+            <!-- <mat-form-field appearance="fill">
+              <mat-label>User Id</mat-label>
+              <input matInput formControlName="userId" required/>
+            </mat-form-field> -->
+            <mat-form-field appearance="fill">
+              <mat-label>Account Type:</mat-label>
+              <mat-select formControlName="label">
+                <mat-option value="Traditional IRA">Traditional IRA</mat-option>
+                <mat-option value="Roth IRA">Roth IRA</mat-option>
+                <mat-option value="Brokerage">Brokerage</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Balance</mat-label>
+              <input matInput formControlName="balance" required />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Annual Contribution</mat-label>
+              <input matInput formControlName="annualContribution" required />
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <mat-list>
+            <mat-list-item>
+              <strong>First Name: </strong>
+              {{ this.firstFormGroup.value.firstName }}</mat-list-item
+            >
+            <mat-list-item>
+              <strong>Last Name: </strong>
+              {{ this.firstFormGroup.value.lastName }}</mat-list-item
+            >
+            <mat-list-item>
+              <strong>Email: </strong>
+              {{ this.firstFormGroup.value.email }}</mat-list-item
+            >
+            <!-- <mat-list-item> <strong>User Id: </strong> {{ this.secondFormGroup.value.userId }}</mat-list-item> -->
+            <mat-list-item>
+              <strong>Account Type: </strong>
+              {{ this.secondFormGroup.value.type }}</mat-list-item
+            >
+            <mat-list-item>
+              <strong>Balance: </strong>
+              {{ this.secondFormGroup.value.balance }}</mat-list-item
+            >
+            <mat-list-item>
+              <strong>Annual Contribution: </strong>
+              {{ this.secondFormGroup.value.annualContribution }}</mat-list-item
+            >
+          </mat-list>
+    
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-button (click)="submit()">Submit</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+  </mat-card>
+  
+  <mat-spinner *ngIf="isLoadingAuth"></mat-spinner>
+</div>

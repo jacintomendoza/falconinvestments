@@ -1,0 +1,53 @@
+<ng-container *ngIf="isArticles; else noArticles">
+    <div class="article-container">
+        <mat-card class="article-card" *ngFor="let article of articles">
+            <mat-card-title-group>
+              <mat-card-title>{{article.title}}</mat-card-title>
+              <img mat-card-md-image src="{{article.image_url}}" >
+            </mat-card-title-group>
+            <mat-card-content>
+                {{article.description}}
+            </mat-card-content>
+            <a href="{{article.url}}">
+                <button mat-button>Read Article</button>
+            </a>
+        </mat-card>
+    </div>
+</ng-container>
+
+<ng-template #noArticles>
+    <div class="article-container">
+        <mat-card class="article-card" >
+            <mat-card-title-group>
+              <mat-card-title>This is the article title that is supposed to be long</mat-card-title>
+              <img mat-card-lg-image src="../../assets/images/family1.jpg" >
+            </mat-card-title-group>
+            <mat-card-content>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam itaque neque expedita quae? Eum velit corrupti a commodi excepturi illo veritatis recusandae, placeat iure laborum dicta facilis nesciunt quis? Repudiandae?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, culpa quae, facilis soluta quas beatae possimus in minus est neque voluptatibus? Nemo, illo. In reprehenderit odio aut nam neque quod.
+            </mat-card-content>
+            <a href="#">Read Article</a>
+        </mat-card>
+        <mat-card class="article-card" >
+            <mat-card-title-group>
+              <mat-card-title>This is the article title that is supposed to be long</mat-card-title>
+              <img mat-card-lg-image src="../../assets/images/family1.jpg" >
+            </mat-card-title-group>
+            <mat-card-content>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam itaque neque expedita quae? Eum velit corrupti a commodi excepturi illo veritatis recusandae, placeat iure laborum dicta facilis nesciunt quis? Repudiandae?
+            </mat-card-content>
+            <a href="#">Read Article</a>
+        </mat-card>
+        <mat-card class="article-card" >
+            <mat-card-title-group>
+              <mat-card-title>This is the article title that is supposed to be long</mat-card-title>
+              <img mat-card-lg-image src="../../assets/images/family1.jpg" >
+            </mat-card-title-group>
+            <mat-card-content>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam itaque neque expedita quae? Eum velit corrupti a commodi excepturi illo veritatis recusandae, placeat iure laborum dicta facilis nesciunt quis? Repudiandae?
+            </mat-card-content>
+            <a href="#">Read Article</a>
+        </mat-card>
+    </div>
+</ng-template>
+

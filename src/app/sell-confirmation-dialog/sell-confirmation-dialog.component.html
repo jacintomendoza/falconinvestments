@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Are you sure you wish to sell?</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Press Confirm Sale to proceed; otherwise this action will be canceled.</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+    Confirm Sale
+  </button>
+</mat-dialog-actions>

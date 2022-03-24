@@ -1,0 +1,209 @@
+.welcome {
+  display: flex;
+  min-height: 450px;
+  background-color: #ede7d0;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 20px;
+  div {
+    margin: 0 20px;
+    min-width: 40vw;
+    max-width: 60vw;
+  }
+  img {
+    min-width: 450px;
+    max-width: 600px;
+  }
+}
+
+.accounts {
+  padding: 40px 120px;
+  background-color: #549369;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  min-height: 450px;
+  .account-wrapper {
+    background-color: rgba(255, 255, 255, 0.898);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 40px 20px;
+    .account-types {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      width: 70vw;
+      margin: auto;
+      aside {
+        padding: 0 80px;
+        text-align: left;
+        line-height: 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-family: "Merriweather", serif;
+
+        a {
+          margin: 10px 0;
+          align-self: center;
+        }
+        a:hover {
+          background-color: #3336908e;
+        }
+      }
+    }
+  }
+}
+.ira h2, .investments h2, .news h2 {
+  padding: 10px 1rem 20px 0;
+  font-size: 36px;
+  font-family: "Playfair Display", serif;
+  border-bottom: 1px solid black;
+  display: inline-block;
+  line-height: 34px;
+}
+
+.investments {
+  min-height: 400px;
+  padding: 20px 40px;
+  background-color: #dcb28ba5;
+  h2 {
+   padding-right: 200px;
+    margin-left: 70px;
+    margin-bottom: 30px;
+  }
+  mat-tab-group {
+    margin: 10px 30px 70px 30px;
+    background-color: #034f3ad5;
+    ::ng-deep .mat-tab-label {
+      color: white;
+    }
+    .stocks {
+      height: 350px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.972);
+      padding: 50px;
+      .inv-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+        p {
+          width: 500px;
+          margin: 40px auto;
+          line-height: 22px;
+        }
+      }
+      img {
+        min-width: 250px;
+        max-width: 450px;
+        
+      }
+    }
+  }
+  ::ng-deep .mat-tab-label-active {
+    color: white;
+    background-color: #034f3ad5;
+  }
+  ::ng-deep .mat-tab-header {
+    border-bottom-style: none;
+  }
+}
+
+.news {
+  min-height: 500px;
+  border-top: 1px solid black;
+  .news-container {
+    background-color: #549369;
+    width: 85vw;
+    margin: 60px auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 650px;
+    h2 {
+      margin-top: 50px;
+      padding: 10px 100px;
+      text-align: center;
+    }
+  }
+}
+
+h2 {
+  font-size: 34px;
+  font-family: "Merriweather", serif;
+}
+
+h3 {
+  font-family: "Merriweather", serif;
+  font-size: 22px;
+}
+
+mat-icon {
+  font-size: 40px;
+  text-align: center;
+  width: 100px;
+}
+
+section a {
+  text-decoration: none;
+  color: white;
+  background-color: #1d3557;
+  padding: 7px;
+  border-radius: 5px;
+  width: 130px;
+  text-align: center;
+  &:hover {
+    background-color: #3336908e;
+  }
+}
+img {
+  border: 1px solid black;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px black;
+}
+
+@media only screen and (max-width: 900px) {
+  .welcome {
+    min-height: 350px ;
+    div {
+      h2 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    img {
+      min-width: 100px;
+      max-width: 400px;
+
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .welcome {
+    min-height: 150px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    div {
+      h2 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+    img {
+      min-width: 50px;
+      max-width: 250px;
+    }
+  }
+}

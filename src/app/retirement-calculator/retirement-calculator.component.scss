@@ -1,0 +1,39 @@
+.container {
+    min-height: 80vh;
+    text-align: center;
+    h2 {
+        padding: 30px;
+        margin: 0 100px 20px 100px;
+        font-size: 40px;
+        border-bottom: 1px solid black;
+        display: inline-block;
+        text-align: center;
+        line-height: 34px;
+      }
+    .retirement {
+        display: flex;
+        justify-content: center;
+    }
+    aside {
+        width: 30vw;
+        padding: 20px;
+        mat-card {
+            padding: 30px;
+            border: 1px solid black;
+            h3 {
+                font-size: 24px;
+            }
+        }
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        min-width: 15vw;
+    }
+    .results {
+        height: 20vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
