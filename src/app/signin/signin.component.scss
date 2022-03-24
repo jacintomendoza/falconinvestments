@@ -8,7 +8,7 @@
   mat-card {
     max-width: 40vw;
     border-radius: 15px;
-    background-color: #549369;
+    background-color: var(--primary-color);
     padding: 40px;
     p {
       text-align: center;
@@ -28,7 +28,8 @@
     margin: auto;
   }
   .loginform {
-    background-color: rgba(255, 255, 255, 0.932);
+    background-color: white;
+    opacity: 80%;
     padding: 30px;
     width: 500px;
     margin: auto;
