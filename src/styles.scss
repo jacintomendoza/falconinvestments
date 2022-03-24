@@ -9,20 +9,14 @@ body {
 body {
   margin: 0;
   font-family: "Merriweather", serif;
-  background-color: #ede7d0;
+  background-color: var(--background-color);
 }
 
-h1 {
-  font-family: "Montserrat", sans-serif;
-}
+:root {
+  --primary-color: #669BBC;
+  --background-color: #BBB5BD;
+  --secondary-color: #5e7c71;
 
-h2,
-h3 {
-  font-family: "Playfair Display", serif;
-}
-
-p {
-  font-family: "Merriweather", serif;
 }
 
 .snackbar {
