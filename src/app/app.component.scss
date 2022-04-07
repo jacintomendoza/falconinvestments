@@ -41,6 +41,13 @@ mat-sidenav-content {
   background-color: var(--background-color);
   // height: 100vh; //breaks AOS
 }
+
+mat-sidenav {
+  background-color: var(--secondary-color);
+  padding: 16px;
+  position: fixed;
+}
+
 .mobile-link {
   display: none;
 }
